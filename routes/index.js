@@ -22,10 +22,11 @@ function asyncHandler(cb){
 
 /* GET home page. */
 router.get('/', asyncHandler(async(req, res)=> {
-  const books = await Book.findAll();
-   res.redirect('/books', { title:"books"});
+   res.redirect('/books');
 }));
 
+module.exports = router
 
 
-module.exports = router;
+
+
