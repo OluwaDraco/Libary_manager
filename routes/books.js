@@ -5,7 +5,7 @@ var router = express.Router();
 const Book = require("../models").Book;
 
 const Helper = require("./errorHelper")
-
+//function to handle asynchronous calls 
 function asyncHandler(cb){
     return async(req,res,next)=>{
         try{
@@ -69,7 +69,7 @@ router.get('/:id',asyncHandler(async(req,res,next)=>{
       res.sendStatus(404)
     }
   }))
-   //get book detail to delete
+   //get book details to delete
    router.post('/:id/delete',asyncHandler(async(req,res,next)=>{
     let book = await Book.findByPk(req.params.id)
     await book.destroy(book);
