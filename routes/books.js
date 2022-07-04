@@ -39,7 +39,7 @@ router.get('/',asyncHandler(async(req,res,next)=>{
     }catch(error){
       if(error.name === "SequelizeValidationError"){
         book = await Book.build(req.body)
-        res.render('books/new-book',{book,error:error.errors,title:"New Book"})
+        res.render('books/new-book',{book,errors:error.errors,title:"New Book"})
 
       }
       else{
