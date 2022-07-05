@@ -5,7 +5,7 @@ router.use((req,res,next)=>{
     const error = new Error();
     error.status = 404;
     error.message = "sorry there was an error"
-    res.status(404).render('error',{error});
+    res.status(404).render('page-not-found',{error});
 
 })
 
