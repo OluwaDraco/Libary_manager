@@ -51,7 +51,11 @@ router.get('/',asyncHandler(async(req,res,next)=>{
 //get book to update
 router.get('/:id',asyncHandler(async(req,res,next)=>{
   let book = await Book.findByPk(req.params.id)
-  res.render("books/update-book",{book,title:"Update Book"});
+  if(book){
+    res.render("books/update-book",{book,title:"Update Book"});
+  }else{
+    res.sendStatus(404);
+  }
 }))
 
   //update book detail form
